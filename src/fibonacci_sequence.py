@@ -14,8 +14,11 @@ def greet():
 def get_fibonacci(n):
     Phi = (1 + math.sqrt(5))/2
     phi = (1 - math.sqrt(5))/2
+    try:
+        return n if n <= 2 else round( ((Phi  ** n) - (phi ** n ) )/ math.sqrt(5) ) 
+    except:
+        raise Exception('number is too big')
 
-    return n if n <= 2 else round( ((Phi  ** n) - (phi ** n ) )/ math.sqrt(5) ) 
 
 def main():
     greet()
@@ -34,7 +37,11 @@ def main():
             print('you must provide an integer number from 0 and above')
             print()
         else:
-            print(f'F[{n}]={get_fibonacci(n)}')
+            try:
+                print(f'F[{n}]={get_fibonacci(n)}')
+            except Exception as error:
+                print(error)
+
 
         
 if __name__ == '__main__':
