@@ -15,7 +15,9 @@ def get_fibonacci(n):
     Phi = (1 + math.sqrt(5))/2
     phi = (1 - math.sqrt(5))/2
     try:
-        return n if n <= 2 else round( ((Phi  ** n) - (phi ** n ) )/ math.sqrt(5) ) 
+        if n == 2:
+            return 1
+        return n if n < 2 else round( ((Phi  ** n) - (phi ** n ) )/ math.sqrt(5) ) 
     except:
         raise Exception('number is too big')
 
